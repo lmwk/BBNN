@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class Generation : MonoBehaviour
 {
     private Text textComp;
+    public Text BeyText;
     public GameObject managerObj;
     void Start()
     {

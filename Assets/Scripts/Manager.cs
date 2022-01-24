@@ -57,7 +57,7 @@ namespace Scripts
                                 nets[i + (popSize / 2)]); 
                     }
                     
-                    using (StreamWriter file = new("AverageWData.txt", true))
+                    using (StreamWriter file = new StreamWriter("AverageWData.txt", true))
                     {
                         file.Write($"Generation {generation}: {averageWacrossNN / popSize}\n");
                     }
@@ -93,7 +93,7 @@ namespace Scripts
             for (int i = 0; i < popSize; i++)
             {
                 Bey bey = ((GameObject)Instantiate(beyPrefab,
-                    new Vector3(UnityEngine.Random.Range(-50f, 50f), 1.2f, UnityEngine.Random.Range(-50f, 50f)), beyPrefab.transform.rotation)).GetComponent<Bey>();
+                    new Vector3(UnityEngine.Random.Range(-70f, 70f), 1.2f, UnityEngine.Random.Range(-70f, 70f)), beyPrefab.transform.rotation)).GetComponent<Bey>();
                 bey.Init(nets[i]);
                 beyList.Add(bey);
             }
@@ -112,6 +112,7 @@ namespace Scripts
             {
                 NeuralNetwork net = new NeuralNetwork(layers);
                 net.Mutate();
+                net.AddFitness(100f);
                 nets.Add(net);
             }
 

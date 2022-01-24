@@ -36,7 +36,6 @@ namespace Scripts
 
                 Vector3 MoveVector = transform.TransformDirection(output[0], 0f, output[1]) * speed;
                 rBody.velocity = MoveVector;
-
             }
         }
         
@@ -53,8 +52,8 @@ namespace Scripts
         {
             if (other.gameObject.TryGetComponent<Bey>(out Bey bey))
             {
-                this.net.AddFitness(1f);
-                bey.net.AddFitness(1f);
+                this.net.AddFitness(-1f);
+                bey.net.AddFitness(-1f);
                 var posnorm = (other.transform.forward - this.transform.forward).normalized;
                 var relativeVec = this.rBody.velocity - other.rigidbody.velocity;
                 relativeVec.Scale(posnorm);

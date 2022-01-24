@@ -16,6 +16,7 @@ namespace Scripts
 
         private void Start()
         {
+            Application.targetFrameRate = 90;
             Cursor.lockState = CursorLockMode.Locked;
         }
 
